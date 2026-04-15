@@ -8,7 +8,7 @@ import time
 ruta_ent = os.path.dirname(os.path.abspath(__file__))
 ruta_inf = os.path.abspath(os.path.join(ruta_ent, "..", "inferencia"))
 
-def run_matches(baseline_name, num_matches=10):
+def run_matches(baseline_name, num_matches=3):
     wins = 0
     losses = 0
     ties = 0
@@ -17,7 +17,7 @@ def run_matches(baseline_name, num_matches=10):
     
     for i in range(num_matches):
         # Reload agent fresh each match
-        spec = importlib.util.spec_from_file_location("mod_" + str(i), os.path.join(ruta_ent, "submission_rf.py"))
+        spec = importlib.util.spec_from_file_location("mod_" + str(i), os.path.join(ruta_inf, "modelos", "Aquatic_Agents", "submission.py"))
         mod = importlib.util.module_from_spec(spec)
         spec.loader.exec_module(mod)
         
